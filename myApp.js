@@ -1,13 +1,3 @@
-window.onscroll = function () {
-  myFunction();
-};
+let indicator = document.querySelector(".progress-bar");
 
-function myFunction() {
-  console.log("hey!");
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
+window.addEventListener("scroll", () => console.log(window.scrollY));

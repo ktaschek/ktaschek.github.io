@@ -1,23 +1,25 @@
 :root {
   /* variables */
-  --cg-ivory: rgb(250, 241, 228);
+  --cg-ivory: rgb(220, 211, 188);
   --cg-pastel-green: rgb(206, 222, 189);
   --cg-avocado-green: rgb(158, 179, 132);
   --cg-dark-green: rgb(67, 83, 52);
-  --cg-darkest-green: rgb(57, 73, 42);
+  --cg-darkest-green: rgb(51, 59, 36);
+  --cg-slider-green: rgb(41, 49, 26);
 }
 
 html {
   height: 100%;
+  overflow: auto;
 }
 
 body {
-  background: var(--cg-ivory);
+  background: var(--cg-dark-green);
   position: relative;
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: monospace;
+  font-family: "Merriweather", monospace;
 }
 
 /* CSS for navigation */
@@ -27,7 +29,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 7%;
+  height: 7vh;
   z-index: 10;
 
   display: flex;
@@ -35,8 +37,7 @@ body {
   align-items: center;
   text-align: center;
 
-  background-color: var(--cg-dark-green);
-  color: var(--cg-pastel-green);
+  background-color: var(--cg-darkest-green);
   padding: 0px 0px;
 
   /* Debug border */
@@ -55,13 +56,13 @@ body {
 }
 
 .navbar a {
-  color: var(--cg-pastel-green);
+  color: var(--cg-ivory);
   font-weight: bold;
   margin: 0 12px;
   text-decoration: none;
   letter-spacing: 2px;
 
-  font-family: monospace;
+  font-family: "Merriweather", monospace;
 }
 
 .navbar a:hover {
@@ -74,7 +75,7 @@ body {
 }
 
 .logo a {
-  font-family: Georgia;
+  font-family: "Merriweather", Georgia;
 }
 
 .logo a:hover {
@@ -93,7 +94,8 @@ main {
   display: flex;
   justify-content: center;
   font-size: 40px;
-  font-family: Georgia;
+  font-family: "Merriweather", Georgia;
+  color: var(--cg-ivory);
 }
 
 /* CSS for portfolio grid */
@@ -115,6 +117,17 @@ main {
   /* border: 2px solid red; */
 }
 
+#portfolio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+#portfolio-container img {
+  width: 250%;
+  margin-left: -29vw;
+}
+
 .project-image {
   object-fit: cover;
   width: 100%;
@@ -126,7 +139,7 @@ main {
   /* border: 2px solid black; */
 }
 
-.project-details {
+/* .project-details {
   display: flex;
   background-color: var(--cg-avocado-green);
   width: 30%;
@@ -139,12 +152,12 @@ main {
 
   flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: center; */
 
-  /* Debug border */
-  /* border: 2px solid green; */
-}
+/* Debug border */
+/* border: 2px solid green; */
 
+/* 
 .project-details a {
   color: var(--cg-dark-green);
   text-decoration: none;
@@ -164,7 +177,7 @@ main {
 .project-name {
   font-weight: bold;
   font-size: 20px;
-}
+} */
 
 /* CSS for home page */
 
@@ -220,7 +233,32 @@ main {
 }
 
 .resume h2 {
-  font-family: Georgia;
+  font-family: "Merriweather", Georgia;
+}
+
+.resume-container {
+  border-style: solid;
+  background-color: var(--cg-ivory);
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: var(--cg-avocado-green);
+  padding: 3vh;
+  color: var(--cg-darkest-green);
+}
+
+.resume-button {
+  background-color: var(--cg-ivory);
+  border-style: solid;
+  border-radius: 5px;
+  border-color: var(--cg-avocado-green);
+  margin-bottom: 1vh;
+  font: "Merriweather";
+  padding: 0.2vh;
+}
+
+.resume-button a {
+  color: var(--cg-darkest-green);
+  text-decoration: none;
 }
 
 /* CSS for contact form */
@@ -228,7 +266,7 @@ main {
 label {
   display: block;
   margin-bottom: 8px;
-  font-family: Georgia;
+  font-family: "Merriweather", Georgia;
   font-weight: bold;
 }
 
@@ -238,10 +276,25 @@ textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--cg-darkest-green);
+  background-color: var(--cg-ivory);
   border-radius: 4px;
   font-size: 16px;
   resize: none;
+  font-family: "Merriweather";
+}
+
+#contact-form label {
+  color: var(--cg-ivory);
+}
+
+#contact-form .submit {
+  background-color: var(--cg-ivory);
+  border-color: var(--cg-darkest-green);
+  border-radius: 8%;
+  border-width: 2px;
+  font-family: "Merriweather";
+  color: rgb(51, 59, 36);
 }
 
 /* Add some spacing to the form */
@@ -253,46 +306,130 @@ form {
 /* CSS for footer */
 
 .footer {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--cg-dark-green);
-  position: absolute;
-  bottom: 0;
+  color: var(--cg-avocado-green);
+  position: fixed;
   width: 100%;
-  height: 2.5rem;
+  height: 3vh;
+  bottom: 0vh;
+  background-color: var(--cg-darkest-green);
 }
 
-.page-container {
+.home-html {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
 }
 
 .page-container section {
   height: 100vh;
+  width: 100%;
   display: flex;
+  flex: none;
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
 }
 
-.p1,
-.p2,
-.p3,
-.p4 {
+.hidden {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateX(-100%);
+  transition: all 0.75s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+*::-webkit-scrollbar {
+  width: 1vw;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--cg-darkest-green);
+  border: none;
+}
+
+*::-webkit-scrollbar-track {
   background-color: var(--cg-dark-green);
 }
 
-.progress-container {
-  background-color: var(--cg-pastel-green);
-  position: fixed;
-  bottom: 20px;
-  width: 100vw;
-  height: 100px;
+.title-name {
+  font-size: 23vh;
+  color: var(--cg-ivory);
 }
-.progress-bar {
-  height: 30px;
-  background-color: var(--cg-darkest-green);
-  width: 0;
+
+#name-section {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  top: 10vh;
+}
+
+/*Home*/
+.about-box {
+  width: 80vw;
+  height: 60vh;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  background-color: var(--cg-ivory);
+  border-radius: 5px;
+}
+
+.home-body footer {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.container {
+  max-width: 40vw;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#whale img {
+  margin-left: 0vh;
+  margin-top: -10vh;
+}
+
+#plant img {
+  margin-left: -9vw;
+  margin-top: -7vh;
+}
+
+.about-box img {
+  height: 140%;
+  margin-left: -50px;
+}
+
+.about-text {
+  font: "Merriweather";
+}
+
+.about-text h5 {
+  padding: 0;
+  margin: 0;
+  margin-top: 2vh;
+  font-size: 5vh;
+}
+.about-text p {
+  padding: 0;
+  margin: 0;
+  margin-top: 2vh;
+  font-size: 2vh;
+}
+
+.about-text p,
+h5 {
+  color: var(--cg-darkest-green);
+}
+
+.title-name a {
+  color: var(--cg-ivory);
+  text-decoration: none;
 }
